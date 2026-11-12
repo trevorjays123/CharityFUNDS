@@ -4,6 +4,10 @@
     "admin-api": {
       "hasChanged": false,
       "hash": "19ea0ad797dfb1b752ed4fd1c0e7fe66d276e4146c760d5acb462a4ef464a2c7"
+    },
+    "campaign-link": {
+      "hasChanged": false,
+      "hash": "ce391b626d3faa610e7c3415accfa73d507e6da4f2af2d1b6f6ce45c46ab8d43"
     }
   }
 }
