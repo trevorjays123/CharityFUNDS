@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'node:url';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/CharityFUNDS/'
   plugins: [react()],
   resolve: {
     alias: {
