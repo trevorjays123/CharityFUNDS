@@ -12,8 +12,11 @@ interface CampaignHeaderProps {
   onSaveToggle: () => void;
   withdrawState: 'idle' | 'sending' | 'sent';
   onRequestWithdrawal: () => void;
+  shareUrl: string;
+  shareTitle: string;
+  shareDescription: string;
 }
-export function CampaignHeader({ campaign, donorCount, onDonate, isSaved, onSaveToggle, withdrawState, onRequestWithdrawal }: CampaignHeaderProps) {
+export function CampaignHeader({ campaign, donorCount, onDonate, isSaved, onSaveToggle, withdrawState, onRequestWithdrawal, shareUrl, shareTitle, shareDescription }: CampaignHeaderProps) {
   const pct = Math.min(Math.round((campaign.raised_amount / campaign.goal_amount) * 100), 100);
   return (
     <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm lg:sticky lg:top-24">
@@ -65,7 +68,7 @@ export function CampaignHeader({ campaign, donorCount, onDonate, isSaved, onSave
           <Heart className={`h-4 w-4 ${isSaved ? 'fill-current' : ''}`} />
           {isSaved ? 'Saved' : 'Save'}
         </button>
-        <ShareMenu title={campaign.title} />
+        <ShareMenu title={shareTitle} url={shareUrl} description={shareDescription} />
       </div>
 
       <div className="mt-6 space-y-3 border-t border-stone-100 pt-5 text-sm">

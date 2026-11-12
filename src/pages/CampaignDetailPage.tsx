@@ -7,6 +7,7 @@ import { CommentSection } from '../components/CommentSection';
 import { DonateModal } from '../components/DonateModal';
 import { formatDate, formatMoney } from '../lib/format';
 import { supabase } from '../lib/supabase';
+import { setPageMeta, resetPageMeta } from '../lib/meta';
 
 type Tab = 'story' | 'updates' | 'donors';
 
@@ -61,6 +62,22 @@ export function CampaignDetailPage() {
   }
 
   const donorCount = new Set(donations.map((d) => d.donor_email || d.donor_name)).size;
+
+  const canonicalUrl = `${window.location.origin}/campaigns/${campaign.id}`;
+  const shareText = `${campaign.title}${campaign.location ? ` in ${campaign.location}` : ''}`;
+  const shareDescription =
+    campaign.raised_amount > 0
+      ? `${Math.round((Number(campaign.raised_amount) / Number(campaign.goal_amount)) * 100)}% funded — add your gift today`
+      : campaign.description;
+
+  useEffect(() => {
+    setPageMeta({
+      title: `${campaign.title} | Future Stars Foundation`,
+      description: shareDescription,
+      image: campaign.image_url,
+    });
+    return () => resetPageMeta();
+  }, [campaign.title, campaign.image_url, shareDescription]);
 
   return (
     <div className="bg-stone-50 py-8">
@@ -164,6 +181,9 @@ export function CampaignDetailPage() {
               onSaveToggle={toggleSave}
               withdrawState={withdrawState}
               onRequestWithdrawal={requestWithdrawal}
+              shareUrl={canonicalUrl}
+              shareTitle={shareText}
+              shareDescription={shareDescription}
             />
           </div>
         </div>

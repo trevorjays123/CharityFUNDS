@@ -3,9 +3,11 @@ import { Check, Facebook, Link2, Linkedin, Mail, Share2, Twitter } from 'lucide-
 
 interface ShareMenuProps {
   title: string;
+  url: string;
+  description: string;
 }
 
-export function ShareMenu({ title }: ShareMenuProps) {
+export function ShareMenu({ title, url, description }: ShareMenuProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -18,20 +20,21 @@ export function ShareMenu({ title }: ShareMenuProps) {
     return () => document.removeEventListener('mousedown', onClick);
   }, []);
 
-  const url = typeof window !== 'undefined' ? window.location.href : '';
+  const shareText = `${title} — ${description}`.slice(0, 200);
   const encodedUrl = encodeURIComponent(url);
+  const encodedShareText = encodeURIComponent(shareText);
   const encodedTitle = encodeURIComponent(title);
 
   const links = [
     {
       label: 'Share on X',
       icon: Twitter,
-      href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+      href: `https://twitter.com/intent/tweet?text=${encodedShareText}&url=${encodedUrl}`,
     },
     {
       label: 'Share on Facebook',
       icon: Facebook,
-      href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedShareText}`,
     },
     {
       label: 'Share on LinkedIn',
@@ -41,7 +44,7 @@ export function ShareMenu({ title }: ShareMenuProps) {
     {
       label: 'Share via email',
       icon: Mail,
-      href: `mailto:?subject=${encodedTitle}&body=${encodeURIComponent(`I thought you might like this campaign: ${url}`)}`,
+      href: `mailto:?subject=${encodedTitle}&body=${encodeURIComponent(`${shareText}\n\n${url}`)}`,
     },
   ];
 
@@ -49,7 +52,7 @@ export function ShareMenu({ title }: ShareMenuProps) {
     try {
       await navigator.clipboard.writeText(url);
     } catch {
-      // clipboard unavailable (e.g. http) — still show feedback minimally
+      // clipboard unavailable (e.g. insecure context) — still show feedback
     }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
