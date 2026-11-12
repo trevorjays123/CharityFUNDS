@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -28,7 +28,7 @@ export default function App() {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <div className="flex min-h-screen flex-col">
         <Navbar />
@@ -52,6 +52,6 @@ export default function App() {
           {toast}
         </div>
       )}
-    </BrowserRouter>
+    </HashRouter>
   );
 }
