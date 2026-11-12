@@ -23,7 +23,7 @@ export default function App() {
   const handleNewsletter = async (email: string) => {
     const { error } = await supabase.from('newsletter_subscribers').insert({ email: email.trim() });
     if (error) setToast('Could not subscribe — please try again.');
-    else setToast('You are subscribed. Welcome to GiveRoot!');
+    else setToast('You are subscribed. Welcome to Future Stars Foundation!');
     setTimeout(() => setToast(null), 4000);
   };
 

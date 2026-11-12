@@ -20,7 +20,7 @@ export function Footer({ onNewsletterSubmit }: { onNewsletterSubmit: (email: str
           <div className="md:col-span-2 lg:col-span-1">
             <Logo variant="light" />
             <p className="mt-4 max-w-xs text-sm leading-6 text-primary-200">
-              GiveRoot connects generous people with verified fundraisers around the world. Every gift, big or small, plants a seed of change.
+              Future Stars Foundation connects generous people with verified fundraisers around the world. Every gift, big or small, plants a seed of change.
             </p>
           </div>
           <div>
@@ -77,7 +77,7 @@ export function Footer({ onNewsletterSubmit }: { onNewsletterSubmit: (email: str
           </div>
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-primary-800 pt-8 text-sm text-primary-300 sm:flex-row">
-          <p>© {new Date().getFullYear()} GiveRoot. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Future Stars Foundation. All rights reserved.</p>
           <p>Payments are simulated for demonstration purposes.</p>
         </div>
       </div>

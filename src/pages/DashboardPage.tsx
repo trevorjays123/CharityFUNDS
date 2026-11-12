@@ -7,7 +7,7 @@ import { formatDate, formatMoney } from '../lib/format';
 
 export function DashboardPage() {
   const [email, setEmail] = useState('');
-  const [submittedEmail, setSubmittedEmail] = useState<string | null>(localStorage.getItem('giveroot-email'));
+  const [submittedEmail, setSubmittedEmail] = useState<string | null>(localStorage.getItem('future-stars-email'));
   const [donations, setDonations] = useState<Donation[]>([]);
   const [saved, setSaved] = useState<Campaign[]>([]);
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,7 @@ export function DashboardPage() {
   const lookup = async () => {
     if (!email.includes('@')) return;
     setSearching(true);
-    localStorage.setItem('giveroot-email', email.trim().toLowerCase());
+    localStorage.setItem('future-stars-email', email.trim().toLowerCase());
     setSubmittedEmail(email.trim().toLowerCase());
     await load(email.trim().toLowerCase());
     setSearching(false);
@@ -100,7 +100,7 @@ export function DashboardPage() {
           </div>
           <button
             onClick={() => {
-              localStorage.removeItem('giveroot-email');
+              localStorage.removeItem('future-stars-email');
               setSubmittedEmail(null);
               setEmail('');
               setDonations([]);

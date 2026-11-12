@@ -11,7 +11,7 @@ export function Logo({ variant = 'dark' }: LogoProps) {
       <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-600 text-white">
         <HeartHandshake className="h-5 w-5" />
       </span>
-      <span className={`font-display text-xl font-bold tracking-tight ${text}`}>GiveRoot</span>
+      <span className={`font-display text-xl font-bold tracking-tight ${text}`}>Future Stars Foundation</span>
     </span>
   );
 }

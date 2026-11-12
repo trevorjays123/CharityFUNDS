@@ -23,7 +23,7 @@ export function Navbar() {
     <header className="sticky top-0 z-40 border-b border-stone-100 bg-white/95 backdrop-blur">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" aria-label="GiveRoot home">
+          <Link to="/" aria-label="Future Stars Foundation home">
             <Logo />
           </Link>
           <nav className="hidden items-center gap-1 md:flex">

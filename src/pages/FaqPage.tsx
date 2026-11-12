@@ -32,7 +32,7 @@ export function FaqPage() {
             Frequently asked questions
           </h1>
           <p className="mt-3 text-stone-600">
-            Everything you need to know about donating and fundraising on GiveRoot.
+            Everything you need to know about donating and fundraising on Future Stars Foundation.
           </p>
         </div>
 

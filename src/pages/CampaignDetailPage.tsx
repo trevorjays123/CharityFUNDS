@@ -129,7 +129,7 @@ export function CampaignDetailPage() {
                       Organized by {campaign.creator_name}
                     </p>
                     <p className="mt-2 text-sm leading-6 text-primary-900/80">
-                      This organizer's identity and campaign details were verified by the GiveRoot review team before
+                      This organizer's identity and campaign details were verified by the Future Stars Foundation review team before
                       this fundraiser was approved.
                     </p>
                   </div>

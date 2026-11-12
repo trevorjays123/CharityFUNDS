@@ -157,7 +157,7 @@ export function StartCampaignPage() {
           </button>
           <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-stone-400">
             <CheckCircle2 className="h-3.5 w-3.5" />
-            New campaigns appear publicly once approved by the GiveRoot team
+            New campaigns appear publicly once approved by the Future Stars Foundation team
           </p>
         </div>
       </div>
